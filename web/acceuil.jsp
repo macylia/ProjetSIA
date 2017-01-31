@@ -11,31 +11,13 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <title>Accueil utilsateur</title>
-    <link rel="stylesheet" type="text/css" href="libFont/bootstrap/css/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="libFont/bootstrap/css/bootstrap-dialog.min.css"/>
-    <link rel="stylesheet" type="text/css" href="libFont/datatables/1.10.12/css/dataTables.bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="libFont/datatables/1.10.12/css/autoFill.bootstrap.css"/>
-    <link rel="stylesheet" type="text/css" href="libFont/datatables/1.10.12/css/buttons.bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="libFont/datatables/1.10.12/css/responsive.bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="libFont/datatables/1.10.12/css/select.bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap-dialog.min.css"/>
 
-
-
-    <script src="libFont/jquery/jquery-2.1.4.min.js"></script>
-    <script src="libFont/bootstrap/js/bootstrap.min.js"></script>
-    <script src="libFont/bootstrap/js/ie10-viewport-bug-workaround.js"></script>
-    <script type="text/javascript" src="libFont/datatables/1.10.12/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="libFont/datatables/1.10.12/js/dataTables.bootstrap.min.js"></script>
-    <script type="text/javascript" src="libFont/datatables/1.10.12/js/dataTables.autoFill.min.js"></script>
-    <script type="text/javascript" src="libFont/datatables/1.10.12/js/autoFill.bootstrap.min.js"></script>
-    <script type="text/javascript" src="libFont/datatables/1.10.12/js/dataTables.buttons.min.js"></script>
-    <script type="text/javascript" src="libFont/datatables/1.10.12/js/buttons.bootstrap.min.js"></script>
-    <script type="text/javascript" src="libFont/datatables/1.10.12/js/buttons.colVis.min.js"></script>
-    <script type="text/javascript" src="libFont/datatables/1.10.12/js/buttons.html5.min.js"></script>
-    <script type="text/javascript" src="libFont/datatables/1.10.12/js/dataTables.responsive.min.js"></script>
-    <script type="text/javascript" src="libFont/datatables/1.10.12/js/responsive.bootstrap.min.js"></script>
-    <script type="text/javascript" src="libFont/datatables/1.10.12/js/dataTables.select.min.js"></script>
-</head>
+    <script src="lib/jquery/jquery-2.1.4.min.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="lib/bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+  </head>
 <body background="images/petiteFeuille.jpg" >
 <div id="navbar" class="navbar navbar-inverse">
     <ul class="nav navbar-nav">

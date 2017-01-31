@@ -73,7 +73,11 @@ $(document).ready(function () {
 
 
      $('#tableFacture').DataTable({
-     responsive: true,
+         sDom: "<'row'<'col-md-6'f><'col-sm-15'>><'row'<'col-sm-15'tr>><'row'<'col-sm-4'l><'col-sm-4'p><'col-sm-4'>>",
+         responsive: true,
+         language: {
+             "url": "lib/datatables/French.json"
+         },
      columns: [
      {"data": "id", "visible": false},
      {"data": "number", title: "Numero"},

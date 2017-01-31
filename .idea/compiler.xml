@@ -22,10 +22,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="ProjetSIA" />
         <module name="simpleWebProject" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="ProjetSIA" target="1.5" />
       <module name="simpleWebProject" target="1.5" />
     </bytecodeTargetLevel>
   </component>
