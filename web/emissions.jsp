@@ -66,7 +66,7 @@
     </head>
 </head>
 <body background="images/petiteFeuille.jpg" >
-<div id="navbar" class=" navbar navbar-inverse " style="background-color: #6B8E23; text-decoration-color: #0f0f0f">
+<div id="navbar" class=" navbar navbar-inverse " style="background-color: #6B8E23; text-color: #0f0f0f">
     <ul class=" nav navbar-nav">
         <li><a href="acceuil.jsp">Acceuil</a> </li>
         <li><a href="emissions.jsp">Mes émissions</a> </li>
@@ -83,6 +83,47 @@
 <br>
 
 <div id='chartContainer' style="width:50%; height: 400px; border: solid	#9ACD32;"/>
+
+<div id="popup-grid-facture" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+    <div class="modal-dialog" style="width: 40%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="popup-title-facture">Créer une facture</h4>
+            </div>
+            <div class="modal-body">
+                <form id="popup-form-facture" class='form-horizontal' role="form" >
+                    <input style="display:none" id="id" name="id"/>
+
+                    <div class="form-group">
+                        <div class="col-sm-5">
+                            <label for="numero" >Numero</label>
+                            <input class="form-control" type="text" name="numero" id="numero" placeholder="numero" required
+                                   autofocus/>
+                        </div>
+                        <div class="col-sm-5">
+                            <label for="montant" >Montant</label>
+                            <input class="form-control " type="text" name="montant" id="montant" placeholder="montant" required
+                                   autofocus/>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button class="btn btn-default" data-dismiss="modal" >Annuler</button>
+                        <button id="popup-submit-user" class="btn btn-primary validate" type="submit" >Créer</button>
+                    </div>
+                </form>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+</div>
+
+
+
 
 </body>
 </html>

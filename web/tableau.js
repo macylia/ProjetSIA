@@ -73,8 +73,17 @@ $(document).ready(function () {
 
 
      $('#tableFacture').DataTable({
-         sDom: "<'row'<'col-md-6'f><'col-sm-15'>><'row'<'col-sm-15'tr>><'row'<'col-sm-4'l><'col-sm-4'p><'col-sm-4'>>",
+         sDom: "<'row'<'col-sm-2'B><'col-md-4'f>><'row'<'col-sm-15'tr>><'row'<'col-sm-4'l><'col-sm-4'p>>",
          responsive: true,
+         buttons: [
+             {
+                 text: 'Créer une facture',
+                 action: function (e, dt, node, config) {
+                     console.log("jQuery est prêt !");
+                    $('#popup-grid-facture').modal('show');
+                     console.log("jQuery est prêt !");
+                 }
+             }],
          language: {
              "url": "lib/datatables/French.json"
          },
