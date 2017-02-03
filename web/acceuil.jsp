@@ -19,7 +19,7 @@
     <script src="lib/bootstrap/js/ie10-viewport-bug-workaround.js"></script>
   </head>
 <body background="images/petiteFeuille.jpg" >
-<div id="navbar" class="navbar navbar-inverse">
+<div id="navbar" class="navbar navbar-inverse" style="background-color: #6B8E23; text-color: #0f0f0f">
     <ul class="nav navbar-nav">
         <li><a href="accueil.jsp">Acceuil</a> </li>
         <li><a href="emissions.jsp">Mes émissions</a> </li>

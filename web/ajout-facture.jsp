@@ -9,9 +9,21 @@
 <html>
 <head>
     <title>Ajout d'une facture</title>
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap-dialog.min.css"/>
+    <script src="lib/jquery/jquery-2.1.4.min.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="lib/bootstrap/js/ie10-viewport-bug-workaround.js"></script>
 </head>
 <body>
-<div id="popup-grid-facture" class="modal fade" tabindex="-1" role="dialog">
+<form id="myform" class="form-wizard">
+    <h2 class="form-wizard-heading">BootStap Wizzard Form</h2>
+    <input type="text" value=""/>
+    <input type="submit"/>
+</form>
+
+<!-- Modal -->
+<div id="popup-grid-facture" class="modal  fade" tabindex="-1" role="dialog" >
     <div class="modal-dialog" style="width: 40%;">
         <div class="modal-content">
             <div class="modal-header">
@@ -36,21 +48,27 @@
                         </div>
                     </div>
 
-            <div class="modal-footer">
-                <button class="btn btn-default" data-dismiss="modal" >Annuler</button>
-                <button id="popup-submit-user" class="btn btn-primary validate" type="submit" >Créer</button>
+                    <div class="modal-footer">
+                        <button class="btn btn-default" data-dismiss="modal" >Annuler</button>
+                        <button id="popup-submit-user" class="btn btn-primary validate" type="submit" >Créer</button>
+                    </div>
+                </form>
             </div>
-            </form>
+            <!-- /.modal-content -->
         </div>
-        <!-- /.modal-content -->
+        <!-- /.modal-dialog -->
     </div>
-    <!-- /.modal-dialog -->
-</div>
-<!-- /.modal -->
+    <!-- /.modal -->
 </div>
 
 
 
-
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#myform').on('submit', function (ev) {
+            $('#popup-grid-facture').modal('show');
+        });
+    });
+</script>
 </body>
 </html>

@@ -55,7 +55,11 @@
 
             div.dataTables_paginate {
                 float: left;
+                background-color: #9ACD32;
+            }
 
+            a.btn {
+                background-color: #9ACD32;
             }
             table thead {
                 text-align: center;
@@ -77,41 +81,63 @@
 
 <h1 align="right" style="margin-right: 2cm; margin-top: 0cm"><i>Mes émissions de CO2 </i> </h1>
 
-
-<table id="tableFacture" name="tableFacture" class="table table-striped table-bordered" cellspacing="0" width="50%">
-</table>
-<br>
-
-<div id='chartContainer' style="width:50%; height: 400px; border: solid	#9ACD32;"/>
-
-<div id="popup-grid-facture" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
-    <div class="modal-dialog" style="width: 40%;">
+<div id="popup-grid-facture" class="modal  fade" tabindex="-1" role="dialog" >
+    <div class="modal-dialog" style="width: 30%;">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header" style="background-color: #9ACD32">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
                 </button>
                 <h4 class="modal-title" id="popup-title-facture">Créer une facture</h4>
             </div>
             <div class="modal-body">
-                <form id="popup-form-facture" class='form-horizontal' role="form" >
+                <form id="popup-form-facture" class='form-horizontal' role="form" data-parsley-validate>
                     <input style="display:none" id="id" name="id"/>
 
                     <div class="form-group">
-                        <div class="col-sm-5">
-                            <label for="numero" >Numero</label>
-                            <input class="form-control" type="text" name="numero" id="numero" placeholder="numero" required
-                                   autofocus/>
+                        <div class="col-sm-offset-2 col-sm-8">
+                            <label for="docType" class="sr-only">docType</label>
+                            <input class="form-control" type="text" name="docType" id="docType" placeholder="docType" autofocus/>
                         </div>
-                        <div class="col-sm-5">
-                            <label for="montant" >Montant</label>
-                            <input class="form-control " type="text" name="montant" id="montant" placeholder="montant" required
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-8">
+                            <label for="docTypeVersion" class="sr-only">docTypeVersion</label>
+                            <input class="form-control" type="text" name="docTypeVersion" id="docTypeVersion" placeholder="docTypeVersion" autofocus/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-8">
+                            <label for="startDate" class="sr-only">Date de début</label>
+                            <input class="form-control" type="date" name="startDate" id="startDate" placeholder="Date de début" autofocus required/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-8">
+                            <label for="endDate" class="sr-only">Date de fin</label>
+                            <input class="form-control" type="date" name="endDate" id="endDate" placeholder="Date de fin" autofocus required/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-8">
+                            <label for="value" class="sr-only">Consomation</label>
+                            <input class="form-control" type="number" name="value" id="value" placeholder="Consomation" autofocus required/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-8">
+                            <label for="contractNumber" class="sr-only">Numéro du contrat</label>
+                            <input class="form-control " type="number" name="contractNumber" id="contractNumber" placeholder="Numéro du contrat" required
                                    autofocus/>
                         </div>
                     </div>
 
                     <div class="modal-footer">
                         <button class="btn btn-default" data-dismiss="modal" >Annuler</button>
-                        <button id="popup-submit-user" class="btn btn-primary validate" type="submit" >Créer</button>
+                        <button id="popup-submit-user" class="btn btn-success validate" type="submit" >Créer</button>
                     </div>
                 </form>
             </div>
@@ -121,6 +147,19 @@
     </div>
     <!-- /.modal -->
 </div>
+
+
+
+<table id="tableFacture" name="tableFacture" class="table table-striped table-bordered" cellspacing="0" width="50%">
+</table>
+<br>
+
+
+
+<div id='chartContainer' style="width:50%; height: 400px; border: solid	#9ACD32;"/>
+
+
+
 
 
 
