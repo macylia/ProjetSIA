@@ -5,6 +5,8 @@
   Time: 14:37
   To change this template use File | Settings | File Templates.
 --%>
+
+<%-- lien vers les factures edf github : https://github.com/jacquarg/mesinfos-dev/commit/ebb0315898125804a1705576ef94821070d04a80 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
