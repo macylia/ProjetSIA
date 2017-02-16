@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 /**
  * Created by MACYLIA on 04/02/2017.
  */
@@ -8,6 +6,8 @@ import java.util.ArrayList;
 
 
 public class Facture {
+
+
     private String docType;
     private String docTypeVersion;
     private String startDate;

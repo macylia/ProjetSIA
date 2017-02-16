@@ -92,7 +92,7 @@
                 <h4 class="modal-title" id="popup-title-facture">Créer une facture</h4>
             </div>
             <div class="modal-body">
-                <form id="popup-form-facture" class='form-horizontal' role="form" data-parsley-validate>
+                <form id="popup-form-facture" class='form-horizontal' role="form" data-parsley-validate method="POST">
                     <input style="display:none" id="id" name="id"/>
 
                     <div class="form-group">
@@ -139,7 +139,7 @@
 
                     <div class="modal-footer">
                         <button class="btn btn-default" data-dismiss="modal" >Annuler</button>
-                        <button id="popup-submit-user" class="btn btn-success validate" type="submit" >Créer</button>
+                        <button id="popup-submit-user" class="btn btn-success validate" type="submit" >Cxréer</button>
                     </div>
                 </form>
             </div>
