@@ -11,5 +11,14 @@
         <servlet-name>ServletLogin</servlet-name>
         <url-pattern>/ServletLogin</url-pattern>
     </servlet-mapping>
-
+    <servlet>
+        <servlet-name>ServletFacture</servlet-name>
+        <servlet-class>ServletFacture</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletFacture</servlet-name>
+        <url-pattern>/ServletFacture</url-pattern>
+    </servlet-mapping>
 </web-app>
+
+
