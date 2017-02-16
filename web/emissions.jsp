@@ -105,7 +105,7 @@
                 <h4 class="modal-title" id="popup-title-facture">Créer une facture</h4>
             </div>
             <div class="modal-body">
-                <form id="popup-form-facture" class='form-horizontal' role="form" data-parsley-validate method="POST">
+                <form method ="POST" action ="ServletFacture" id="popup-form-facture" class='form-horizontal' role="form" data-parsley-validate >
                     <input style="display:none" id="id" name="id"/>
 
                     <div class="form-group">
