@@ -1,5 +1,6 @@
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import models.Facture;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,8 +20,28 @@ public class test {
         ObjectMapper mapper = new ObjectMapper();
         List<Facture> factures = mapper.readValue(new File("Facture.json"), typeRef);
 
+        App app = new App();
+        System.out.println("creer app");
 
-        System.out.println("Facture "+factures);
+
+        int nb =0;
+        for (Facture facture : factures ){
+            app.ajout(facture);
+            nb++;
+        }
+
+
+        System.out.println("creation de"+nb+"facture de fichier json ");
+
+
+
+        ServiceFacture sf = new ServiceFacture();
+
+        System.out.println("affichage liste facture = "+sf.lister());
+
+
+
+     /*   System.out.println("Facture "+factures);
         System.out.println("Facture "+factures.get(0).get_docType());
         System.out.println("Facture "+factures.get(1).get_docType());
         System.out.println("Facture "+factures.get(0).get_endDate());
@@ -29,7 +50,8 @@ public class test {
         System.out.println("Facture "+factures.get(0).get_statementCategory());
         System.out.println("Facture "+factures.get(0).get_statementReason());
         System.out.println("Facture "+factures.get(3).get_statementType());
-        System.out.println("Facture "+factures.get(0).get_value());
+        System.out.println("Facture "+factures.get(0).get_value());*/
+
     }
 
     public static void main(String[] args) throws IOException {
