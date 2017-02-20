@@ -19,6 +19,14 @@
         <servlet-name>ServletFacture</servlet-name>
         <url-pattern>/ServletFacture</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>ServletListeFacture</servlet-name>
+        <servlet-class>ServletListeFacture</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletListeFacture</servlet-name>
+        <url-pattern>/ServletListeFacture</url-pattern>
+    </servlet-mapping>
 </web-app>
 
 

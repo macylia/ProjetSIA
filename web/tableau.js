@@ -57,19 +57,7 @@ $(document).ready(function () {
 
     // select the chartContainer DIV element and render the chart.
     $('#chartContainer').jqxChart(settings);
-/*
-    $.getJSON( "ajax/test.json", function( data ) {
-        var items = [];
-        $.each( data, function( key, val ) {
-            items.push( "<li id='" + key + "'>" + val + "</li>" );
-        });
 
-        $( "<ul/>", {
-            "class": "my-new-list",
-            html: items.join( "" )
-        }).appendTo( "body" );
-    });
-*/
 
 
      $('#tableFacture').DataTable({
@@ -79,28 +67,17 @@ $(document).ready(function () {
              {
                  text: 'Créer une facture',
                  action: function (e, dt, node, config) {
-                     console.log("jQuery est prêt !");
                     $('#popup-grid-facture').modal('show');
-                     console.log("jQuery est prêt !");
                  }
              }],
          language: {
              "url": "lib/datatables/French.json"
-         },
-     columns: [
-     {"data": "id", "visible": false},
-     {"data": "number", title: "Numero"},
-     {"data": "date", title: "Date"},
-     {"data": "amount", title: "Montant"},
-     {"data": "co2", title: "Emission de co2"},
-     {
-     "data": null, title: "Actions", width: "20px", "render": function (data, type, row) {
-     return '<a class="glyphicon glyphicon-pencil"></a> &nbsp; <a class="glyphicon glyphicon-remove"></a>';
-     }
-     }
-     ]
+         }
      });
 
+
+
+    $("#container").load("contenu.html");
 
 
 });

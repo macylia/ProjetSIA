@@ -1,3 +1,5 @@
+<%@ page import="models.Facture" %>
+<%@ page import="java.util.List" %>
 <%--
   Created by IntelliJ IDEA.
   User: MACYLIA
@@ -23,10 +25,11 @@
         <link rel="stylesheet" type="text/css" href="lib/datatables/1.10.12/css/select.bootstrap.min.css"/>
 
 
+
         <script src="lib/jquery/jquery-2.1.4.min.js"></script>
         <script src="lib/bootstrap/js/bootstrap.min.js"></script>
-        <script src="lib/bootstrap/js/ie10-viewport-bug-workaround.js"></script>
         <script type="text/javascript" src="lib/datatables/1.10.12/js/jquery.dataTables.min.js"></script>
+        <script src="lib/bootstrap/js/ie10-viewport-bug-workaround.js"></script>
         <script type="text/javascript" src="lib/datatables/1.10.12/js/dataTables.bootstrap.min.js"></script>
         <script type="text/javascript" src="lib/datatables/1.10.12/js/dataTables.autoFill.min.js"></script>
         <script type="text/javascript" src="lib/datatables/1.10.12/js/autoFill.bootstrap.min.js"></script>
@@ -44,6 +47,7 @@
         <script type="text/javascript" src="lib/jqxdraw.js"></script>
         <script type="text/javascript" src="lib/jqxdata.js"></script>
         <script type="text/javascript" src="tableau.js"></script>
+
         <style>
             div.dataTables_length {
                 float: left;
@@ -80,7 +84,7 @@
         </div>
         <ul class="nav navbar-nav">
 
-            <li><a href="emissions.jsp">Mes émissions</a></li>
+            <li><a href="ServletListeFacture">Mes émissions</a></li>
             <li><a href="https://www.facebook.com/EcoConsom/?notif_t=fbpage_fan_invite&notif_id=1483439308812811">Notre
                 page facebook </a></li>
         </ul>
@@ -91,7 +95,6 @@
         </ul>
     </div>
 </div>
-
 
 <h1 align="right" style="margin-right: 2cm; margin-top: 0cm"><i>Mes émissions de CO2 </i></h1>
 
@@ -158,7 +161,7 @@
 
                     <div class="modal-footer">
                         <button class="btn btn-default" data-dismiss="modal">Annuler</button>
-                        <button id="popup-submit-user" class="btn btn-success validate" type="submit">Cxréer</button>
+                        <button id="popup-submit-user" class="btn btn-success validate" type="submit">Créer</button>
                     </div>
                 </form>
             </div>
@@ -170,13 +173,11 @@
 </div>
 
 
-<table id="tableFacture" name="tableFacture" class="table table-striped table-bordered" cellspacing="0" width="50%">
+<table id="tableFacture" name="tableFacture" class="table table-striped table-bordered"  width="50%">
 </table>
 <br>
 
-
 <div id='chartContainer' style="width:50%; height: 400px; border: solid	#9ACD32;"/>
-
 
 </body>
 </html>

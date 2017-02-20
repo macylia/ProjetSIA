@@ -41,7 +41,7 @@ public class ServletFacture extends HttpServlet {
         facture.setContractNumber(contractNumber);
 
         System.out.println(facture);
-        System.out.println("1111111111111");
+
        App app = new App();
        System.out.println("creer app");
        System.out.println("creer facture de servlet: "+ app.ajout(facture));
