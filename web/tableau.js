@@ -3,21 +3,61 @@
  */
 $(document).ready(function () {
 
-    // prepare chart data
-    var  sampleData = [
-        { Day:'Janvier', Keith:25,},
-        { Day:'Fevrier', Keith:30, },
-        { Day:'mars', Keith:35, },
-        { Day:'avril', Keith:20, },
-        { Day:'mais', Keith:30, },
-        { Day:'juin', Keith:90,},
-        { Day:'juillet', Keith:65, },
-        { Day:'aout', Keith:40, },
-        { Day:'septembre', Keith:20, },
-        { Day:'octobre', Keith:80, },
-        { Day:'novembre', Keith:10, },
-        { Day:'decembre', Keith:75, }
-    ];
+    if (typeof EcoConsom == "undefined" || !EcoConsom) {
+        window.EcoConsom = {};
+    }
+
+
+
+    EcoConsom.tableFacture = $('#tableFacture').DataTable({
+        sDom: "<'row'<'col-md-6'B><'col-sm-15'f>><'row'<'col-sm-15'tr>><'row'<'col-sm-4'l><'col-sm-4'p><'col-sm-4'i>>",
+        responsive: true,
+        buttons: [
+            {
+                text: 'Créer une facture',
+                action: function (e, dt, node, config) {
+                    $('#popup-grid-facture').modal('show');
+                }
+            }],
+        "ajax": {
+            "url": "/ServletListeFacture",
+            "dataSrc": ""
+        },
+        language: {
+            "url": "lib/datatables/French.json"
+        },
+        columns: [
+            {"data": "id",title: "id"},
+            {"data": "startDate", title: "Date"},
+            {"data": "invoiceNumber", title: "Numero de facture"},
+            {"data": "contractNumber", title: "Numero du contrat"},
+            {"data": "value", title: "Emission de co2"},
+            {
+                "data": null, title: "Actions", width: "20px", "render": function (data, type, row) {
+                return '<a class="glyphicon glyphicon-pencil"></a> &nbsp; <a class="glyphicon glyphicon-remove"></a>';
+            }
+            }
+        ]
+    });
+
+
+
+    $('#tableFacture tbody').on('click', 'a.glyphicon-pencil', function (event) {
+        var row = EcoConsom.tableFacture.row($(this).parents('tr')).data();
+
+        $('#popup-grid-facture').modal('show');
+    });
+
+
+
+   // console.log(EcoConsom.tableFacture('#tableFacture tbody').data());
+var listeFactures ;
+   function test()
+    {
+       // var tab = EcoConsom.tableFacture($('#tableFacture tbody')).data();
+        $.get("/ServletListeFacture", function(responseText) {
+         listeFactures = responseText;
+            console.log(listeFactures);
 
     // prepare jqxChart settings
     var settings = {
@@ -25,10 +65,14 @@ $(document).ready(function () {
         description: "c'est un tableau de bord",
         padding: { left: 5, top: 10, right: 5, bottom: 5 },
         titlePadding: { left: 90, top: 0, right: 0, bottom: 10 },
-        source: sampleData,
+        source: listeFactures,
         xAxis: //l'axe des x
         {
-            dataField: 'Day',
+            dataField: 'startDate',
+            formatFunction: function (value) {
+                var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                return months[new Date(value).getMonth()];
+            },
             //afficher une grille dans le graphe
             gridLines: {visible: false},
             tickMarks: {visible: false}
@@ -36,8 +80,7 @@ $(document).ready(function () {
         valueAxis: //l'axe des y
         {
             minValue: 0,
-            maxValue: 100,
-            unitInterval: 10,
+            unitInterval: 50,
             title: {text: 'Emission de CO2 (KG CO2)'}
         },
         colorScheme: 'scheme02',
@@ -45,39 +88,26 @@ $(document).ready(function () {
         seriesGroups:
             [
                 {
-                    type: 'column',
-                    columnsGapPercent: 30,
-                    seriesGapPercent: 10,
+                    type: 'spline',
+                    title: 'spline',
+                    markers: { type: 'diamond', size: 10 },
                     series: [
-                        { dataField: 'Keith', displayText: 'CO2 en KG/mois'}
+                        { dataField: 'value',
+                            formatFunction: function (value) {
+                                return value *6;
+                            },
+                            displayText: 'CO2 en KG/mois'}
+
                     ]
                 }
             ]
     };
 
-    // select the chartContainer DIV element and render the chart.
-    $('#chartContainer').jqxChart(settings);
 
+            $('#chartContainer').jqxChart(settings);
 
-
-     $('#tableFacture').DataTable({
-         sDom: "<'row'<'col-sm-2'B><'col-md-4'f>><'row'<'col-sm-15'tr>><'row'<'col-sm-4'l><'col-sm-4'p>>",
-         responsive: true,
-         buttons: [
-             {
-                 text: 'Créer une facture',
-                 action: function (e, dt, node, config) {
-                    $('#popup-grid-facture').modal('show');
-                 }
-             }],
-         language: {
-             "url": "lib/datatables/French.json"
-         }
-     });
-
-
-
-    $("#container").load("contenu.html");
-
+        });
+    }
+    test();
 
 });

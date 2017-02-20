@@ -1,3 +1,6 @@
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 import models.Facture;
 import models.ListFactures;
 import org.hibernate.ejb.HibernatePersistence;
@@ -57,9 +60,11 @@ public class ServiceFacture {
         return isCreated;
     }
 
-public boolean lister ( )
+
+//me retourne un string json avec la liste
+public String lister ( )
 {
-    boolean islisted=false;
+    String json = null;
 
     PersistenceProvider persistenceProvider = new HibernatePersistence();
     EntityManagerFactory emf = persistenceProvider.createEntityManagerFactory("NewPersistenceUnit",new HashMap());
@@ -78,14 +83,26 @@ public boolean lister ( )
 
         @SuppressWarnings("unchecked")
         List<Facture> factures = (List<Facture>)query.getResultList();
-        for(Facture f : factures) {
+      /*  for(Facture f : factures) {
             System.out.println(f);
-        }
+        }*/
+        //transformation en json
+        System.out.println("creation object mapper");
+      //  ObjectMapper mapper = new ObjectMapper();
+
+       /*
+            json = mapper.writeValueAsString(factures);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }*/
+
+         json = new Gson().toJson(factures);
+      //  System.out.println(json);
+
 
         // Applique les modifications à la base de données
         tx.commit();
         System.out.println("Transaction confirmée");
-        islisted=true;
         // Ferme la session et termine JPA
         em.close();
 
@@ -95,11 +112,12 @@ public boolean lister ( )
     } finally {
         //ne pas oublier de fermer la Session
         emf.close();
+
     }
-    return islisted;
+    return json;
 }
 
-
+// me retourne la liste avec objets java facture
     public List<Facture> lister2 ( )
     {
         List<Facture> factures = null;

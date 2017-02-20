@@ -19,21 +19,23 @@
     <script src="lib/bootstrap/js/ie10-viewport-bug-workaround.js"></script>
   </head>
 <body background="images/petiteFeuille.jpg" >
-<div id="navbar" class="navbar navbar-inverse" style="background-color: #6B8E23; text-color: #0f0f0f">
+<div id="navbar" class="navbar navbar-inverse" style="background-color: #6B8E23; text-color: #FfFfFf">
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" href="accueil.jsp">Acceuil</a>
         </div>
-    <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav">
 
-        <li><a href="emissions.jsp">Mes émissions</a> </li>
-        <li><a href="https://www.facebook.com/EcoConsom/?notif_t=fbpage_fan_invite&notif_id=1483439308812811">Notre page facebook </a> </li>
-    </ul>
+            <li><a href="emissions.jsp">Mes émissions</a></li>
+            <li><a href="factures.jsp">Mes Factures</a></li>
+            <li><a href="https://www.facebook.com/EcoConsom/?notif_t=fbpage_fan_invite&notif_id=1483439308812811">Notre
+                page facebook </a></li>
+        </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="index.jsp"><span class="glyphicon glyphicon-user"></span> Déconnexion</a></li>
         </ul>
 
-    </ul>
+        </ul>
     </div>
 </div>
 <%
@@ -42,7 +44,7 @@
 
 %>
 
-<h1 align="right" style="margin-right: 2cm"><i>Bienvenu cher ${username}</i> </h1>
+<h1  align="right" style="margin-right: 2cm; text-color: #FfFfFf"><i>Bienvenu cher ${username}</i> </h1>
 
 <iframe width="600" height="300" src="https://www.youtube.com/embed/FpKvPcfBs1I" frameborder="5" ></iframe>
 </br>

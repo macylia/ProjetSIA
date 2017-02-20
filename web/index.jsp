@@ -33,7 +33,7 @@ background-color: #00802b;
             <div class="modal-header panel-heading"  style="background-color: #9ACD32" >
                 <h4 class="modal-title panel-title" id="popup-title-fournisseur">Login to EcoConso</h4>
             </div>
-            <form method ="POST" action ="ServletListeFacture"  id="popup-form-login" role="form" >
+            <form method ="POST" action ="ServletLogin"  id="popup-form-login" role="form" >
 
                 <div class="modal-body panel-body">
 
