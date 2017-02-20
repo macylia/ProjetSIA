@@ -163,4 +163,43 @@ public String lister ( )
     }
 
 
+
+    public boolean delete ( long idFacture)
+    {
+        boolean valider = false;
+
+        PersistenceProvider persistenceProvider = new HibernatePersistence();
+        EntityManagerFactory emf = persistenceProvider.createEntityManagerFactory("NewPersistenceUnit",new HashMap());
+
+        try {
+
+            EntityManager em = emf.createEntityManager();
+            System.out.println("Entity manager prêt");
+
+            // Commence une transaction
+            EntityTransaction tx = em.getTransaction();
+            tx.begin();
+            System.out.println("Début de la transaction");
+
+            Facture facture = em.find(Facture.class,idFacture);
+
+
+            em.remove(facture);
+
+            tx.commit();
+            em.close();
+
+            valider = true;
+        } catch (Exception e) {
+            System.out.println("la fonction de suppression crache");
+            System.out.println(e.getMessage());
+        } finally {
+            //ne pas oublier de fermer la Session
+            emf.close();
+
+        }
+        return valider;
+    }
+
+
 }

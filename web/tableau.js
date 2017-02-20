@@ -44,20 +44,47 @@ $(document).ready(function () {
 
     $('#tableFacture tbody').on('click', 'a.glyphicon-pencil', function (event) {
         var row = EcoConsom.tableFacture.row($(this).parents('tr')).data();
-
         $('#popup-grid-facture').modal('show');
     });
 
 
 
-   // console.log(EcoConsom.tableFacture('#tableFacture tbody').data());
-var listeFactures ;
-   function test()
+    $('#tableFacture tbody').on('click', 'a.glyphicon-remove', function (event) {
+        var row = EcoConsom.tableFacture.row($(this).parents('tr')).data();
+        var id = row.id;
+        BootstrapDialog.confirm("Supprimer la facture du (" + row.startDate + ") ? ",
+            function (result) {
+                if (result) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/ServletDelete",
+                        data: 'id='+ id,
+                        success: function (msg) {
+                            $.notify("La Facture a était suprimé");
+
+                            EcoConsom.tableFacture.row(row).remove().draw();
+                        },
+                        error: function () {
+                            BootstrapDialog.show({
+                                type: BootstrapDialog.TYPE_WARNING,
+                                message: "La facture n'a pas pu être supprimée, contacter l'administrateur."
+                            });
+                        }
+                    });
+                }
+            });
+
+    });
+
+
+
+
+
+
+   function afficheGraphe()
     {
-       // var tab = EcoConsom.tableFacture($('#tableFacture tbody')).data();
         $.get("/ServletListeFacture", function(responseText) {
-         listeFactures = responseText;
-            console.log(listeFactures);
+            var listeFactures = responseText;
 
     // prepare jqxChart settings
     var settings = {
@@ -108,6 +135,6 @@ var listeFactures ;
 
         });
     }
-    test();
+    afficheGraphe();
 
 });

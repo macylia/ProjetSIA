@@ -27,6 +27,14 @@
         <servlet-name>ServletListeFacture</servlet-name>
         <url-pattern>/ServletListeFacture</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>ServletDelete</servlet-name>
+        <servlet-class>ServletDelete</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletDelete</servlet-name>
+        <url-pattern>/ServletDelete</url-pattern>
+    </servlet-mapping>
 </web-app>
 
 

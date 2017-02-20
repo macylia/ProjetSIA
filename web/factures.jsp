@@ -28,6 +28,9 @@
 
         <script src="lib/jquery/jquery-2.1.4.min.js"></script>
         <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+        <script src="lib/bootstrap/js/bootstrap-dialog.min.js"></script>
+        <script src="lib/bootstrap/js/bootstrap-notify.min.js"></script>
+        <script src="lib/datatables/js/buttons.bootstrap.min.js"></script>
         <script type="text/javascript" src="lib/datatables/1.10.12/js/jquery.dataTables.min.js"></script>
         <script src="lib/bootstrap/js/ie10-viewport-bug-workaround.js"></script>
         <script type="text/javascript" src="lib/datatables/1.10.12/js/dataTables.bootstrap.min.js"></script>

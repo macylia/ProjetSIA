@@ -5,7 +5,7 @@ public class AddJson {
 
     public static void main(String[] args) {
         ServiceFacture sf = new ServiceFacture();
-        System.out.println(sf.lister());
+        System.out.println(sf.delete(1));
     }
 
 
