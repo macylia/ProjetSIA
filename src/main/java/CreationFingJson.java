@@ -11,9 +11,9 @@ import java.util.List;
  */
 
 
-public class test {
+public class CreationFingJson {
 
-    static void test() throws IOException {
+    static void ajoutFacture() throws IOException {
 
         TypeReference<List<Facture>> typeRef = new TypeReference<List<Facture>>() { };
 
@@ -56,6 +56,6 @@ public class test {
 
     public static void main(String[] args) throws IOException {
         //Vos données, variables, différents traitements…
-        test.test();
+        CreationFingJson.ajoutFacture();
     }//Fin de la méthode main
 }

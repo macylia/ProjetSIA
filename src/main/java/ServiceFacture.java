@@ -31,18 +31,18 @@ public class ServiceFacture {
         try {
 
             EntityManager em = emf.createEntityManager();
-            System.out.println("Entity manager prêt");
+           // System.out.println("Entity manager prêt");
 
             // Commence une transaction
             EntityTransaction tx = em.getTransaction();
             tx.begin();
-            System.out.println("Début de la transaction");
+          //  System.out.println("Début de la transaction");
 
             em.persist(facture);
 
             // Applique les modifications à la base de données
             tx.commit();
-            System.out.println("Transaction confirmée");
+           // System.out.println("Transaction confirmée");
             isCreated=true;
             // Ferme la session et termine JPA
             em.close();
@@ -72,12 +72,12 @@ public String lister ( )
     try {
 
         EntityManager em = emf.createEntityManager();
-        System.out.println("Entity manager prêt");
+       // System.out.println("Entity manager prêt");
 
         // Commence une transaction
         EntityTransaction tx = em.getTransaction();
         tx.begin();
-        System.out.println("Début de la transaction");
+       // System.out.println("Début de la transaction");
 
         Query query = em.createQuery("SELECT a FROM Facture a ORDER BY id DESC");
 
@@ -87,14 +87,7 @@ public String lister ( )
             System.out.println(f);
         }*/
         //transformation en json
-        System.out.println("creation object mapper");
-      //  ObjectMapper mapper = new ObjectMapper();
-
-       /*
-            json = mapper.writeValueAsString(factures);
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }*/
+      //  System.out.println("creation object mapper");
 
          json = new Gson().toJson(factures);
       //  System.out.println(json);
@@ -102,12 +95,12 @@ public String lister ( )
 
         // Applique les modifications à la base de données
         tx.commit();
-        System.out.println("Transaction confirmée");
+       // System.out.println("Transaction confirmée");
         // Ferme la session et termine JPA
         em.close();
 
     } catch (Exception e) {
-        System.out.println("la fonction crache");
+        System.out.println("la fonction ajout crache");
         System.out.println(e.getMessage());
     } finally {
         //ne pas oublier de fermer la Session
@@ -150,7 +143,7 @@ public String lister ( )
             em.close();
 
         } catch (Exception e) {
-            System.out.println("la fonction crache");
+            System.out.println("la fonction lister crache");
             System.out.println(e.getMessage());
         } finally {
             //ne pas oublier de fermer la Session
@@ -174,12 +167,12 @@ public String lister ( )
         try {
 
             EntityManager em = emf.createEntityManager();
-            System.out.println("Entity manager prêt");
+        //    System.out.println("Entity manager prêt");
 
             // Commence une transaction
             EntityTransaction tx = em.getTransaction();
             tx.begin();
-            System.out.println("Début de la transaction");
+          //  System.out.println("Début de la transaction");
 
             Facture facture = em.find(Facture.class,idFacture);
 
@@ -191,7 +184,7 @@ public String lister ( )
 
             valider = true;
         } catch (Exception e) {
-            System.out.println("la fonction de suppression crache");
+            System.out.println("la fonction delete crache");
             System.out.println(e.getMessage());
         } finally {
             //ne pas oublier de fermer la Session

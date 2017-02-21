@@ -1,5 +1,3 @@
-<%@ page import="models.Facture" %>
-<%@ page import="java.util.List" %>
 <%--
   Created by IntelliJ IDEA.
   User: MACYLIA
@@ -25,7 +23,6 @@
         <link rel="stylesheet" type="text/css" href="lib/datatables/1.10.12/css/select.bootstrap.min.css"/>
 
 
-
         <script src="lib/jquery/jquery-2.1.4.min.js"></script>
         <script src="lib/bootstrap/js/bootstrap.min.js"></script>
         <script src="lib/bootstrap/js/bootstrap-dialog.min.js"></script>
@@ -43,9 +40,7 @@
         <script type="text/javascript" src="lib/datatables/1.10.12/js/dataTables.responsive.min.js"></script>
         <script type="text/javascript" src="lib/datatables/1.10.12/js/responsive.bootstrap.min.js"></script>
         <script type="text/javascript" src="lib/datatables/1.10.12/js/dataTables.select.min.js"></script>
-
-
-           <script type="text/javascript" src="tableau.js"></script>
+                  <script type="text/javascript" src="commun-facture.js.js"></script>
 
         <style>
             div.dataTables_length {
@@ -84,7 +79,7 @@
 <div id="navbar" class="navbar navbar-inverse" style="background-color: #6B8E23; text-color: #0f0f0f">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="accueil.jsp">Acceuil</a>
+            <a class="navbar-brand" href="home.jsp">Acceuil</a>
         </div>
         <ul class="nav navbar-nav">
 
@@ -112,7 +107,8 @@
                 <h4 class="modal-title" id="popup-title-facture">Créer une facture</h4>
             </div>
             <div class="modal-body">
-                <form method ="POST" action ="ServletFacture" id="popup-form-facture" class='form-horizontal' role="form" data-parsley-validate >
+                <form method="POST" action="ServletFacture" id="popup-form-facture" class='form-horizontal' role="form"
+                      data-parsley-validate>
                     <input style="display:none" id="id" name="id"/>
 
                     <div class="form-group">
@@ -186,7 +182,8 @@
 </div>
 <div class="col-sm-10 col-sm-offset-1 ">
     <h1 class="page-header"><i>Factures </i></h1>
-    <table id="tableFacture" name="tableFacture"  class="table table-info table-hover table-bordered" cellspacing="0" width="100%">
+    <table id="tableFacture" name="tableFacture" class="table table-info table-hover table-bordered" cellspacing="0"
+           width="100%">
     </table>
 </div>
 </body>

@@ -11,7 +11,7 @@ import java.io.IOException;
 
 public class ServletDelete extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("je suis dans la servlet delete");
+        System.out.println("la servlet delete execution");
         long id = Integer.parseInt(request.getParameter("id"));
       System.out.println(id );
         ServiceFacture sf = new ServiceFacture();

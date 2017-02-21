@@ -14,8 +14,7 @@ public class ServletFacture extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
-
+        System.out.println("servlet création facture execution");
 
         String docType = request.getParameter("docType");
         String docTypeVersion = request.getParameter("docTypeVersion");
@@ -23,12 +22,11 @@ public class ServletFacture extends HttpServlet {
         String endDate = request.getParameter("endDate");
         String value = request.getParameter("value");
         String contractNumber= request.getParameter("contractNumber");
-        //String invoiceNumber = request.getParameter("invoiceNumber");
+        String invoiceNumber = request.getParameter("invoiceNumber");
         //String statementType = request.getParameter("value");
         //String statementCategory = request.getParameter("value");
         //String statementReason = request.getParameter("value");
 
-        System.out.println("les données sont : "+docType+docTypeVersion+startDate+endDate+value+contractNumber);
 
 
          Facture facture =  new Facture();
@@ -39,13 +37,15 @@ public class ServletFacture extends HttpServlet {
         facture.setEndDate(endDate);
         facture.setValue(value);
         facture.setContractNumber(contractNumber);
+        facture.setInvoiceNumber(invoiceNumber);
 
-        System.out.println(facture);
 
-       App app = new App();
-       System.out.println("creer app");
-       System.out.println("creer facture de servlet: "+ app.ajout(facture));
 
+
+        ServiceFacture sf = new ServiceFacture();
+
+         sf.ajout(facture);
+        response.sendRedirect("/factures.jsp");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

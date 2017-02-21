@@ -31,22 +31,16 @@ $(document).ready(function () {
             {"data": "startDate", title: "Date"},
             {"data": "invoiceNumber", title: "Numero de facture"},
             {"data": "contractNumber", title: "Numero du contrat"},
-            {"data": "value", title: "Emission de co2"},
-            {
-                "data": null, title: "Actions", width: "20px", "render": function (data, type, row) {
-                return '<a class="glyphicon glyphicon-pencil"></a> &nbsp; <a class="glyphicon glyphicon-remove"></a>';
+            {"data": "value", title: "consomation electricité"},
+            {"data": "value", title: "Emission de co2", "render": function (data, type, row) {
+                return data*6;
+            }},
+            {"data": null, title: "Actions", width: "20px", "render": function (data, type, row) {
+                return '<a class="glyphicon glyphicon-remove"></a>';
             }
             }
         ]
     });
-
-
-
-    $('#tableFacture tbody').on('click', 'a.glyphicon-pencil', function (event) {
-        var row = EcoConsom.tableFacture.row($(this).parents('tr')).data();
-        $('#popup-grid-facture').modal('show');
-    });
-
 
 
     $('#tableFacture tbody').on('click', 'a.glyphicon-remove', function (event) {
@@ -84,6 +78,7 @@ $(document).ready(function () {
    function afficheGraphe()
     {
         $.get("/ServletListeFacture", function(responseText) {
+            var maMap = null;
             var listeFactures = responseText;
 
     // prepare jqxChart settings
@@ -92,9 +87,11 @@ $(document).ready(function () {
         description: "c'est un tableau de bord",
         padding: { left: 5, top: 10, right: 5, bottom: 5 },
         titlePadding: { left: 90, top: 0, right: 0, bottom: 10 },
-        source: listeFactures,
+        source:listeFactures,
+
         xAxis: //l'axe des x
         {
+
             dataField: 'startDate',
             formatFunction: function (value) {
                 var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];

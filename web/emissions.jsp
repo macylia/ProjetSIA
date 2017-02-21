@@ -25,7 +25,6 @@
         <link rel="stylesheet" type="text/css" href="lib/datatables/1.10.12/css/select.bootstrap.min.css"/>
 
 
-
         <script src="lib/jquery/jquery-2.1.4.min.js"></script>
         <script src="lib/bootstrap/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="lib/datatables/1.10.12/js/jquery.dataTables.min.js"></script>
@@ -46,14 +45,14 @@
         <script type="text/javascript" src="lib/jqxchart.core.js"></script>
         <script type="text/javascript" src="lib/jqxdraw.js"></script>
         <script type="text/javascript" src="lib/jqxdata.js"></script>
-        <script type="text/javascript" src="tableau.js"></script>
+        <script type="text/javascript" src="commun-facture.js"></script>
     </head>
 </head>
-<body background="images/petiteFeuille.jpg" style=" background-repeat: no-repeat;" >
+<body background="images/petiteFeuille.jpg" style=" background-repeat: no-repeat;">
 <div id="navbar" class="navbar navbar-inverse" style="background-color: #6B8E23; text-color: #0f0f0f">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="accueil.jsp">Acceuil</a>
+            <a class="navbar-brand" href="home.jsp">Acceuil</a>
         </div>
         <ul class="nav navbar-nav">
 

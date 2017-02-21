@@ -13,9 +13,8 @@ import java.io.PrintWriter;
 public class ServletLogin extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
 
-
+        System.out.println("servlet login execution");
 
         String login ;
         String password;
@@ -24,21 +23,13 @@ public class ServletLogin extends HttpServlet {
         password = request.getParameter("password");
 
         if (login.equals(password))  {
-            request.setAttribute( "test", login );
-
-            HttpSession session = request.getSession();
-            session.setAttribute("username",login);
-            this.getServletContext().getRequestDispatcher( "/acceuil.jsp" ).forward( request, response );
-
+          //  HttpSession session = request.getSession();
+          //  session.setAttribute("username",login);
+          //  request.setAttribute("username",login);
+            this.getServletContext().getRequestDispatcher( "/home.jsp" ).forward( request, response );
         }
-
         else
-
             response.sendRedirect("/index.jsp");
-
-
-
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
